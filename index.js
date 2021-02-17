@@ -11,14 +11,12 @@ app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(express.urlencoded({ extended: false }))
 
-app.use(express.static(__dirname + 'assets/'))
+app.use(express.static(__dirname + '/public'))
 // Routes
 app.get('/', (req, res) => {
     // base url to api
-    const requestUrl = "http://www.omdbapi.com/"
     // make a request for a list of movies
-
-    axios.get(requestUrl, {
+    axios.get(process.env.API_URL, {
         params: {
             apikey: process.env.API_KEY,
             s: req.query.title || "Rashomon",
