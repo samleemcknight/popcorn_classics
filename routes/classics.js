@@ -14,7 +14,17 @@ router.get('/', (req, res) => {
 // POST - /classics
 // save a movie as a classic
 router.post('/', (req ,res) => {
-    res.redirect('/classics')
+    // add to db 
+    db.classic.findOrcreate({
+        where: {
+            imdbId: req.body.imdbId
+        },
+        default: {
+            title: req.body.title
+        }
+    }).then(([movie, created]) =>  {
+        res.redirect('/classics')
+    })
 })
 
 module.exports = router

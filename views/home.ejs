@@ -11,8 +11,8 @@
           <%= film.Title %>
         </li>
           <form method="POST" action="/classics">
-            <input type="hidden" name="title" value="<%= film.title %>">
-            <input type="hidden" name="imdbId" value="<%= film.imdbId %>">
+            <input type="hidden" name="title" value="<%= film.Title %>">
+            <input type="hidden" name="imdbId" value="<%= film.imdbID %>">
             <input type="submit" value="+">
           </form>
       <% }) %>

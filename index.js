@@ -9,6 +9,7 @@ const db = require('./models')
 app.use(require('morgan')('dev'))
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
+app.use(express.urlencoded({ extended: false }))
 
 app.use(express.static(__dirname + 'assets/'))
 // Routes
