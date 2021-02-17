@@ -6,11 +6,16 @@
 
 <% if (movies) {%> 
     <ul>
-        <% movies.forEach(film=> { %>
-         <li>
-            <%= film.Title %>
+      <% movies.forEach(film=> { %>
+        <li>
+          <%= film.Title %>
         </li>
-        <% }) %>
+          <form method="POST" action="/classics">
+            <input type="hidden" name="title" value="<%= film.title %>">
+            <input type="hidden" name="imdbId" value="<%= film.imdbId %>">
+            <input type="submit" value="+">
+          </form>
+      <% }) %>
     </ul>
 <%} else {%> 
     <p>No movies of that title were found</p>
