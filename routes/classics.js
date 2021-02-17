@@ -8,22 +8,27 @@ const db = require("../models")
 // GET - /classics
 // show all 'classic' movies
 router.get('/', (req, res) => {
-    res.send("at classics index page")
+    db.classic.findAll()
+        .then((foundMovies) => {
+            console.log(foundMovies)
+            // render the view once the findall has been completed
+            res.render('classics/index.ejs', {movies: foundMovies})
+        })
 })
 
 // POST - /classics
 // save a movie as a classic
 router.post('/', (req ,res) => {
     // add to db 
-    db.classic.findOrcreate({
+    db.classic.findOrCreate({
         where: {
             imdbId: req.body.imdbId
         },
-        default: {
+        defaults: {
             title: req.body.title
         }
     }).then(([movie, created]) =>  {
-        res.redirect('/classics')
+        res.redirect('/classics/')
     })
 })
 

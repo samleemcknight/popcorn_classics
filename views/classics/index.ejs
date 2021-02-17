@@ -1,0 +1,11 @@
+<% if (movies) {%>
+    <ul>
+    <% movies.forEach(film=> { %>
+        <li>
+            <%= film.title %>
+        </li>
+    <% }) %>
+    </ul>
+<%} else {%>
+    <p>No movies were found</p>
+<% } %>
