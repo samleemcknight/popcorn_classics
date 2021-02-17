@@ -1,0 +1,17 @@
+body {
+    background-color: rgba(169, 218, 201, 0.904);
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.nav>li {
+    list-style: none;
+}
+
+a, a:visited {
+    color: blue;
+}

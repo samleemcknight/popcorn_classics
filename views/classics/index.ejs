@@ -2,7 +2,7 @@
     <ul>
     <% movies.forEach(film=> { %>
         <li>
-            <%= film.title %>
+            <a href="/classics/<%= film.id %>"><%= film.title %></a>
         </li>
     <% }) %>
     </ul>
